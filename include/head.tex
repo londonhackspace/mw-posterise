@@ -1,0 +1,41 @@
+\documentclass[20pt, onecolumn, a4paper]{extarticle}
+\usepackage{extsizes}
+\usepackage{eso-pic}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{fontspec}
+\usepackage{textpos}
+\usepackage[margin=1cm, top=4cm, bottom=0cm]{geometry}
+
+\newcommand\BackgroundPic{%
+  \put(0,0){%
+    \parbox[b][\paperheight]{\paperwidth}{%
+      \vfill
+      \centering
+      \includegraphics[width=\paperwidth,height=\paperheight,%
+      keepaspectratio]{./include/background.pdf}%
+      \vfill
+}}}
+
+\renewcommand{\section}[1]{
+  \begin{textblock}{16.5}(2.9, -3.9)
+    \begin{center}
+    \LARGE \bfseries{#1}
+  \end{center}
+  \end{textblock}
+}
+
+\setlength{\TPHorizModule}{1cm}\setlength{\TPVertModule}{1cm}
+
+\newcommand{\editlink}[1]{%
+  \begin{flushright}%
+    \tiny{Edit this poster at \href{#1}{#1}}%
+  \end{flushright}%
+}
+
+\setcounter{secnumdepth}{-1} 
+\setlength{\parindent}{0pt}
+\setmainfont[Ligatures=TeX]{Open Sans}
+\pagenumbering{gobble}
+\begin{document}
+\AddToShipoutPicture{\BackgroundPic}
